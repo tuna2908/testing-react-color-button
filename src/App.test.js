@@ -31,7 +31,8 @@ test("button has the correct inital colour", () => {
 
 //functional test => multiple assertion
 
-test("initial conditions", () => {
+const initButtonAndCheckBoxStatus = () => {
+  //for the reuse purpose
   render(<App />);
   const colorButton = screen.getByRole("button", { name: "Change to blue" });
 
@@ -41,8 +42,29 @@ test("initial conditions", () => {
   //check that the checkbox starts out unchecked
   const checkbox = screen.getByRole("checkbox", {});
   expect(checkbox).not.toBeChecked();
-  
-  //check that the checkbox clicked
 
-  //check if the button disabled
+  return { colorButton, checkbox };
+};
+
+test("initial conditions", () => {
+  initButtonAndCheckBoxStatus();
+});
+
+//should write seperate check to remain other test status if it needed
+
+test("confirm button disable on Checkbox check", () => {
+  //render and find the button
+  //check the init condition: button enabled, checkbox unchecked
+  const { colorButton, checkbox } = initButtonAndCheckBoxStatus();
+
+  //hit the checkbox to disable
+  fireEvent.click(checkbox); //fire Event is an object not function
+  //expext button disabled
+  expect(colorButton).toBeDisabled();
+
+  //hit the check box to enable
+  fireEvent.click(checkbox);
+
+  //expect button enabled
+  expect(colorButton).toBeEnabled();
 });

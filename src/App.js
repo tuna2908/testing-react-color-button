@@ -10,17 +10,23 @@ import { useState } from "react";
 function App() {
   //step 1: return shell function
   const [buttonColor, setButtonColor] = useState("red");
+  const [cbState, setCBState] = useState(false);
 
   const newButtonColor = buttonColor == "red" ? "blue" : "red";
 
   const handleOnclick = () => setButtonColor(newButtonColor);
 
+  const handleCheckboxCheck = (e) => setCBState(e.target.checked);    //check not value :3
   return (
     <div>
-      <button style={{ backgroundColor: buttonColor }} onClick={handleOnclick}>
+      <button
+        style={{ backgroundColor: buttonColor }}
+        onClick={handleOnclick}
+        disabled={cbState}
+      >
         Change to {newButtonColor}
       </button>
-      <input type="checkbox" />
+      <input type="checkbox" onClick={handleCheckboxCheck} />
     </div>
   );
 }
