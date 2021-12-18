@@ -40,7 +40,7 @@ const initButtonAndCheckBoxStatus = () => {
   expect(colorButton).toBeEnabled();
 
   //check that the checkbox starts out unchecked
-  const checkbox = screen.getByRole("checkbox", {});
+  const checkbox = screen.getByRole("checkbox", { name: "Disable Button" });
   expect(checkbox).not.toBeChecked();
 
   return { colorButton, checkbox };

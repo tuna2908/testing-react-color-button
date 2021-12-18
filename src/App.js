@@ -16,7 +16,7 @@ function App() {
 
   const handleOnclick = () => setButtonColor(newButtonColor);
 
-  const handleCheckboxCheck = (e) => setCBState(e.target.checked);    //check not value :3
+  const handleCheckboxCheck = (e) => setCBState(e.target.checked); //check not value :3
   return (
     <div>
       <button
@@ -26,7 +26,12 @@ function App() {
       >
         Change to {newButtonColor}
       </button>
-      <input type="checkbox" onClick={handleCheckboxCheck} />
+      <input
+        type="checkbox"
+        id="disable-button-checkbox"
+        onClick={handleCheckboxCheck}
+      />
+      <label htmlFor="disable-button-checkbox">Disable Button</label>
     </div>
   );
 }
