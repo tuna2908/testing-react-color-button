@@ -30,3 +30,19 @@ test("button has the correct inital colour", () => {
 // });
 
 //functional test => multiple assertion
+
+test("initial conditions", () => {
+  render(<App />);
+  const colorButton = screen.getByRole("button", { name: "Change to blue" });
+
+  //check that button starts out enabled
+  expect(colorButton).toBeEnabled();
+
+  //check that the checkbox starts out unchecked
+  const checkbox = screen.getByRole("checkbox", {});
+  expect(checkbox).not.toBeChecked();
+  
+  //check that the checkbox clicked
+
+  //check if the button disabled
+});
