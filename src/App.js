@@ -20,7 +20,7 @@ function App() {
   return (
     <div>
       <button
-        style={{ backgroundColor: buttonColor }}
+        style={{ backgroundColor: cbState ? "gray" : buttonColor }}
         onClick={handleOnclick}
         disabled={cbState}
       >

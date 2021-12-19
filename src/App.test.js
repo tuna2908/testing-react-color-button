@@ -31,7 +31,7 @@ test("button has the correct inital colour", () => {
 
 //functional test => multiple assertion
 
-const initButtonAndCheckBoxStatus = () => {
+export const initButtonAndCheckBoxStatus = () => {
   //for the reuse purpose
   render(<App />);
   const colorButton = screen.getByRole("button", { name: "Change to blue" });
