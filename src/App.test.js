@@ -1,22 +1,29 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
+import { COLOR_NAMES } from "./common/constants";
 
 //test 2: write test
 test("button has the correct inital colour", () => {
   render(<App />);
-  const colorButton = screen.getByRole("button", { name: "Change to blue" });
+  const colorButton = screen.getByRole("button", {
+    name: "Change to Midnight Blue",
+  });
 
   //use custom matcher: https://github.com/testing-library/jest-dom
-  expect(colorButton).toHaveStyle({ backgroundColor: "red" });
+  expect(colorButton).toHaveStyle({
+    backgroundColor: COLOR_NAMES.MED_VIOLET_RED,
+  });
 
   //click button
   fireEvent.click(colorButton);
 
   //expect color blue
-  expect(colorButton).toHaveStyle({ backgroundColor: "blue" });
+  expect(colorButton).toHaveStyle({
+    backgroundColor: COLOR_NAMES.MIDNIGHT_BLUE,
+  });
 
   //expect txt to change red
-  expect(colorButton.textContent).toBe("Change to red");
+  expect(colorButton.textContent).toBe("Change to Medium Violet Red");
 });
 
 //ignore by caused redundant
@@ -34,7 +41,9 @@ test("button has the correct inital colour", () => {
 export const initButtonAndCheckBoxStatus = () => {
   //for the reuse purpose
   render(<App />);
-  const colorButton = screen.getByRole("button", { name: "Change to blue" });
+  const colorButton = screen.getByRole("button", {
+    name: "Change to Midnight Blue",
+  });
 
   //check that button starts out enabled
   expect(colorButton).toBeEnabled();

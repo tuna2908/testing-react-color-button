@@ -1,6 +1,7 @@
 import { fireEvent } from "@testing-library/react";
 import App from "./App";
 import { initButtonAndCheckBoxStatus } from "./App.test";
+import { COLOR_NAMES } from "./common/constants";
 
 /**
  * QUIZ 2: BUTTON TURNS GRAY
@@ -12,13 +13,15 @@ test("check if button turns gray", () => {
   fireEvent.click(checkbox);
 
   //check button gray
-  expect(colorButton).toHaveStyle({ backgroundColor: "gray" });
+  expect(colorButton).toHaveStyle({ backgroundColor: COLOR_NAMES.GRAY });
 
   //enable button
   fireEvent.click(checkbox);
 
   //check button red
-  expect(colorButton).toHaveStyle({ backgroundColor: "red" });
+  expect(colorButton).toHaveStyle({
+    backgroundColor: COLOR_NAMES.MED_VIOLET_RED,
+  });
 
   //change color
   fireEvent.click(colorButton);
@@ -27,11 +30,13 @@ test("check if button turns gray", () => {
   fireEvent.click(checkbox);
 
   //check gray
-  expect(colorButton).toHaveStyle({ backgroundColor: "gray" });
+  expect(colorButton).toHaveStyle({ backgroundColor: COLOR_NAMES.GRAY });
 
   //enable
   fireEvent.click(checkbox);
 
   //check blue
-  expect(colorButton).toHaveStyle({ backgroundColor: "blue" });
+  expect(colorButton).toHaveStyle({
+    backgroundColor: COLOR_NAMES.MIDNIGHT_BLUE,
+  });
 });
