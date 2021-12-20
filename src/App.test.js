@@ -18,7 +18,7 @@ test("button has the correct inital colour", () => {
   fireEvent.click(colorButton);
 
   //expect color blue
-  expect(colorButton).toHaveStyle({ 
+  expect(colorButton).toHaveStyle({
     backgroundColor: COLOR_NAMES.MIDNIGHT_BLUE,
   });
 
