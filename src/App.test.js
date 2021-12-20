@@ -18,12 +18,12 @@ test("button has the correct inital colour", () => {
   fireEvent.click(colorButton);
 
   //expect color blue
-  expect(colorButton).toHaveStyle({
+  expect(colorButton).toHaveStyle({ 
     backgroundColor: COLOR_NAMES.MIDNIGHT_BLUE,
   });
 
   //expect txt to change red
-  expect(colorButton.textContent).toBe("Change to Medium Violet Red");
+  expect(colorButton).toHaveTextContent("Change to Medium Violet Red");
 });
 
 //ignore by caused redundant
